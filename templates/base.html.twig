@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+            {{ importmap('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% if app.environment == 'dev' %}
+                <script type="module" src="http://localhost:5173/@vite/client"></script>
+                <script type="module" src="http://localhost:5173/assets/app.js"></script>
+            {% else %}
+                {{ importmap('app') }}
+            {% endif %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="app"></div>
+        {% block body %}{% endblock %}
+    </body>
+</html>
