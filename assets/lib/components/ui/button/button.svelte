@@ -1,6 +1,6 @@
 <script>
   import { cva } from "class-variance-authority";
-  import { cn } from "../../../utils.js";
+  import { cn } from "$lib/utils.js";
 
   /**
    * @type {string}
