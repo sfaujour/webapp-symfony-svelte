@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageData.title }}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        // Make Symfony data available to Svelte
+        window.SYMFONY_DATA = {{ pageData|json_encode|raw }};
+    </script>
+{% endblock %} 
